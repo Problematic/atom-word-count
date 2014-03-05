@@ -1,0 +1,14 @@
+{
+  "name": "word-count",
+  "main": "./lib/atom-word-count",
+  "version": "0.0.0",
+  "description": "Simple word count",
+  "activationEvents": ["atom-word-count:toggle"],
+  "repository": "https://github.com/Problematic/atom-word-count",
+  "license": "MIT",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {
+  }
+}
