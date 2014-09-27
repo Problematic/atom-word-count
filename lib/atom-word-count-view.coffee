@@ -33,3 +33,6 @@ class AtomWordCountView extends View
         <p>Words: #{wordCount}</p>")
 
       atom.workspaceView.append(this)
+
+      editor.onDidChange =>
+        @detach()
