@@ -21,10 +21,18 @@ class AtomWordCountView extends View
       @detach()
     else
       editor = @editorView.editor
-      lines = editor.buffer.lines.length
-      words = editor.buffer.cachedText.split(/\s+/)
-      wordCount = words.length
 
-      @find('.message').html("<p>Lines: #{lines}</p><p>Words: #{wordCount}</p>")
+      text = editor.getSelectedText()
+      text = editor.getText() if text.length == 0
+
+      lineCount = text.split(/\n/).length
+      wordCount = text.split(/\s+/).length
+
+      @find('.message').html("
+        <p>Lines: #{lineCount}</p>
+        <p>Words: #{wordCount}</p>")
 
       atom.workspaceView.append(this)
+
+      editor.onDidChange =>
+        @detach()
